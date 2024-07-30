@@ -1,0 +1,67 @@
+name: Build Kernel Packages 
+
+on:
+  workflow_dispatch:
+
+env:
+  VENDOR : lenovo
+  MODEL : akita
+  KERNEL_REPO_BRANCH : droidian
+  PACKAGES_DIR : ${{ github.workspace }}/packages
+  KERNEL_REPO_URL : https://github.com/WHO53/kernel-lenovo-akita
+  KERNEL_DIR : ${{ github.workspace }}/kernel/$VENDOR/$MODEL
+  GH_TOKEN : ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build
+        run: |
+             mkdir -p ${{ env.PACKAGES_DIR }}
+             git clone ${{env.KERNEL_REPO_URL}} -b ${{env.KERNEL_REPO_BRANCH}} ${{env.KERNEL_DIR}} --depth=1
+             docker run --rm -v $PACKAGES_DIR:/buildd -v ${{env.KERNEL_DIR}}:/buildd/sources quay.io/droidian/build-essential:current-amd64 bash -c "cd /buildd/sources && RELENG_HOST_ARCH="arm64" releng-build-package"
+             mkdir ~/kernel-pkg && mv $PACKAGES_DIR/*.deb ~/kernel-pkg/
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: kernel
+          path: ~/kernel-pkg
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: kernel
+        path: ./kernel
+
+    - name: GIT
+      run: |
+        git config --global user.name WHO53
+        git config --global user.email notwho53@gmail.com
+
+    - name: Clone APT Repo
+      run: |
+        git clone https://${{ secrets.PAT }}@github.com/WHO53/apt.git
+        cd apt/packages
+        rm linux*
+        cp ../../kernel/* .
+        git add .
+        git commit -m "Update kernel packages"
+        git push
+      env:
+        PAT: ${{ secrets.PAT }}
+  
+
+      

@@ -1,0 +1,22 @@
+Source: adaptation-lenovo-akita
+Maintainer: Deepak <notwho53@gmail.com>
+Section: metapackages
+Priority: optional
+Build-Depends: debhelper (>= 10)
+Standards-Version: 4.5.0.3
+Vcs-Browser: https://github.com/WHO53/droidian-lenovo-akita
+Vcs-Git: https://github.com/WHO53/droidian-lenovo-akita.git
+
+Package: adaptation-lenovo-akita
+Architecture: all
+Depends: ${misc:Depends},
+         linux-bootimage-lenovo-akita,
+         adaptation-hybris-api28-phone,
+         adaptation-lenovo-akita-configs,
+Description: Lenovo Tab M8 Adaptation Package
+
+Package: adaptation-lenovo-akita-configs
+Architecture: all
+Depends: ${misc:Depends},
+         adaptation-lenovo-akita (= ${binary:Version}),
+Description: Lenovo Tab M8 Adaptation Package Configs

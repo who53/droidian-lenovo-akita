@@ -1,0 +1,3 @@
+if grep -q ABM.bootloader /proc/cmdline; then
+  FLASH_BOOTIMAGE=no
+fi

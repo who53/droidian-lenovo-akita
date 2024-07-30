@@ -1,0 +1,7 @@
+/etc/modules-load.d
+/etc/udev/rules.d
+/etc/phosh
+/etc/pulse
+/etc/flash-bootimage
+/usr/lib/adaptation-lenovo-akita
+/usr/share/glib-2.0/schemas
