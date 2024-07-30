@@ -53,15 +53,12 @@ jobs:
 
     - name: Clone APT Repo
       run: |
-        git clone https://${{ secrets.PAT }}@github.com/WHO53/apt.git
+        git clone https://${{ secrets.PAT }}@github.com/WHO53/apt.git --depth=1
         cd apt/packages
-        rm linux*
+        rm -f linux*
         cp ../../kernel/* .
         git add .
         git commit -m "Update kernel packages"
         git push
       env:
         PAT: ${{ secrets.PAT }}
-  
-
-      
