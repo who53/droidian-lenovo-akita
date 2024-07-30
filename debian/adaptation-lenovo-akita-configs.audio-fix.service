@@ -1,0 +1,11 @@
+[Unit]
+Description=Audio Fix
+After=lxc@android.service
+
+[Service]
+Type=oneshot
+ExecStartPre=/bin/sleep 5
+ExecStart=/usr/bin/droidian-akita-audio-fix.sh
+
+[Install]
+WantedBy=multi-user.target
