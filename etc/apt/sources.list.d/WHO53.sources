@@ -1,0 +1,5 @@
+Components: main
+Suites: stable
+Uris: https://WHO53.github.io/apt
+Types: deb
+Signed-By: /etc/apt/trusted.gpg.d/WHO53.asc
