@@ -1,0 +1,3 @@
+BOOTIMAGE_SLOT_A="/dev/droidian/droidian-persistent"
+DEVICE_SHOULD_FLASH_RECOVERY=yes
+DEVICE_SHOULD_REBOOT_TO_RECOVERY=yes
