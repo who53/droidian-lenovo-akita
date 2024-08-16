@@ -1,4 +1,2 @@
-[org.gnome.settings-daemon.plugins.power]
-sleep-inactive-ac-type = 'nothing'
-sleep-inactive-battery-type = 'nothing'
-ambient-enabled = false
+[org.droidian.MobileSettings]
+touchpanel-double-tap-available = true
