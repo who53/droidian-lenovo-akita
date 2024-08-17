@@ -46,14 +46,12 @@ jobs:
         name: kernel
         path: ./kernel
 
-    - name: GIT
-      run: |
-        git config --global user.name WHO53
-        git config --global user.email notwho53@gmail.com
-
     - name: Clone APT Repo
       run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git clone https://${{ secrets.PAT }}@github.com/WHO53/apt.git --depth=1
+        mkdir -p apt/packages
         cd apt/packages
         rm -f linux*
         cp ../../kernel/* .
