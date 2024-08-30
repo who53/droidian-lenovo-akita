@@ -5,5 +5,4 @@
 
 override_dh_installsystemd:
 	dh_installsystemd --name wifi-fix
-	dh_installsystemd --name droidian-perf
 	dh_installsystemd --name audio-fix
