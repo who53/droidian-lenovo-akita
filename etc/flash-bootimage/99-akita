@@ -1,3 +1,5 @@
-BOOTIMAGE_SLOT_A="/dev/droidian/droidian-persistent"
-DEVICE_SHOULD_FLASH_RECOVERY=yes
-DEVICE_SHOULD_REBOOT_TO_RECOVERY=yes
+if grep -q androidboot.atm /proc/cmdline; then
+	BOOTIMAGE_SLOT_A="/dev/droidian/droidian-persistent"
+	DEVICE_SHOULD_REBOOT_TO_RECOVERY=yes
+	touch /var/cache/flash-bootimage/flash-bootimage-switch-slot
+fi
