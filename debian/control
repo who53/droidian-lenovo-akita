@@ -2,7 +2,11 @@ Source: adaptation-lenovo-akita
 Maintainer: Deepak <notwho53@gmail.com>
 Section: metapackages
 Priority: optional
-Build-Depends: debhelper (>= 10)
+Build-Depends: 
+	debhelper (>= 10),
+  	libglib2.0-dev,
+	libudev-dev,
+	libupower-glib-dev,
 Standards-Version: 4.5.0.3
 Vcs-Browser: https://github.com/WHO53/droidian-lenovo-akita
 Vcs-Git: https://github.com/WHO53/droidian-lenovo-akita.git

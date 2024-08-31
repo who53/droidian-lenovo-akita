@@ -1,0 +1,9 @@
+[Unit]
+Description=LED
+After=phosh.service
+
+[Service]
+ExecStart=/usr/share/WHO53/led
+
+[Install]
+WantedBy=graphical.target
