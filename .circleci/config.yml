@@ -30,7 +30,7 @@ jobs:
           no_output_timeout: 60m
           command: |
             mkdir -p /tmp/buildd-results
-            git clone -b "$CIRCLE_BRANCH" "https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git" sources
+            git clone -b "$CIRCLE_BRANCH" "https://github.com/${CIRCLE_PROJECT_USERNAME}/droidian-lenovo-akita.git" sources
             pkg=$(grep '^Package:' sources/debian/control | awk '{print $2}' | paste -sd " ")
             if [ -n "${CIRCLE_TAG}" ]; then
               cd sources
