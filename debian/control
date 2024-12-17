@@ -15,7 +15,7 @@ Package: adaptation-lenovo-akita
 Architecture: all
 Depends: ${misc:Depends},
          linux-bootimage-lenovo-akita,
-         adaptation-hybris-api28-phone,
+         adaptation-hybris-api29-phone,
          adaptation-lenovo-akita-configs,
 Description: Lenovo Tab M8 Adaptation Package
 
