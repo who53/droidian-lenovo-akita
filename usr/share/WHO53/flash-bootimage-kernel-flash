@@ -47,8 +47,8 @@ EOF
 rm -f "${FLASH_BOOTIMAGE_SWITCH_SLOT_FILE}"
 
 if [ -x "${PLYMOUTH}" ]; then
-	plymouth_message "Please wait"
+	plymouth_message "Updating Kernel, Please Wait"
 fi
 
-/usr/bin/dd if=/dev/droidian/droidian-persistent of=/dev/disk/by-partlabel/boot bs=1M 
+/usr/bin/dd if=/dev/droidian/droidian-persistent of=/dev/disk/by-partlabel/boot bs=4M 
 systemctl reboot
