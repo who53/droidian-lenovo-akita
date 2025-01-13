@@ -2,5 +2,4 @@ if grep -q androidboot.atm /proc/cmdline; then
 	BOOTIMAGE_SLOT_A="/dev/droidian/droidian-persistent"
 	DEVICE_SHOULD_REBOOT_TO_RECOVERY=yes
 	touch /var/cache/flash-bootimage/flash-bootimage-switch-slot
-	DEVICE_HAS_DTBO_PARTITION=no
 fi
