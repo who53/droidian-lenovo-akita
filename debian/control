@@ -4,8 +4,8 @@ Section: metapackages
 Priority: optional
 Build-Depends: 
 	debhelper (>= 10),
+        libdroid-dev,
   	libglib2.0-dev,
-	libudev-dev,
 	libupower-glib-dev,
 Standards-Version: 4.5.0.3
 Vcs-Browser: https://github.com/WHO53/droidian-lenovo-akita
