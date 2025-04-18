@@ -38,7 +38,8 @@ int main() {
     UpClient *client = NULL;
     UpDevice *device = NULL;
 
-    leds = droid_leds_new();
+    GError *err = NULL;
+    leds = droid_leds_new(&err);
 
     client = up_client_new();
     if (client == NULL) {
@@ -67,6 +68,7 @@ cleanup:
     }
     if (leds) {
         droid_leds_set_notification(leds, 0xff000000, 0, 0);
+        g_clear_error(&err);
         g_object_unref(leds);
     }
 
