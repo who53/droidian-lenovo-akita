@@ -1,0 +1,2 @@
+service wait_for_keymaster /system/bin/wait_for_keymaster_HYBRIS_DISABLED
+        disabled
