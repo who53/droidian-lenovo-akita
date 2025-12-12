@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: GPL-2.0-or-later
- * Copyright (C) 2024 Deepak Kumar <notwho53@gmail.com>
+ * Copyright (C) 2024 Deepak Kumar <who53@disroot.org>
  */
 
 #include <stdio.h>

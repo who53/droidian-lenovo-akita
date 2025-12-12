@@ -4,7 +4,7 @@ After=lxc@android.service
 
 [Service]
 ExecStartPre=/usr/bin/waitforservice init.svc.light-hal-2-0
-ExecStart=/usr/share/WHO53/led
+ExecStart=/usr/share/who53/led
 Restart=always
 TimeoutStartSec=5
 
